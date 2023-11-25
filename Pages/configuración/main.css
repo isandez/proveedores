@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family:"popins", sans-serif;
+    text-decoration: none;
+}
+
+:root {
+    /* Colors */
+--body-color: gainsboro;
+--sidebar-color: #1C1B3A ; 
+--user-rol-text:#8E8E8E;
+--items: #FFFFFF;
+--hover:#3a3880  ;
+--Support-button:#8E8E8E;
+--text-icon-color-hover: #D14BCA;
+--header-text:grey;
+--border-left-event-hover: #D14BCA;
+
+}
+
+body {
+    width: 100%;
+    background: gainsboro;
+    position: relative;
+    display: flex;
+}
+.admin-text {
+    font-size: 1.5em;
+}
+
+#menu{
+    background:var(--sidebar-color);
+    width:250px;
+    
+    height:100%;
+    border-right:  2px solid grey;
+    position: fixed;
+    z-index: 999;
+    /* for sidebar*/
+    top: 0;
+    left: 0;
+}
+.ventas_link {
+    transition: 0.3s ease;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#menu .logo  {
+    display: flex;
+    align-items: center;
+    color:rgb(139, 148, 167);
+    padding: 10px 0 0 10px;
+    border-bottom: 1px solid grey;
+    font-weight: 600;
+
+}
+/*degrado de texto*/
+#menu .logo span{
+    background: linear-gradient(to right,  rgb(139, 148, 167), #3a3880,purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#menu .logo img{
+
+width: 40px;
+margin-right: 15px ;
+padding:0;
+margin-bottom: 6px;
+
+}
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(246, 246, 246);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que la pantalla de carga esté en la parte superior */
+    opacity: 0.9;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #020e16;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* termina pagina de carga | Implementa Iván */
+.content {
+    display: none; /* Oculta el contenido hasta que se quite la pantalla de carga */
+    width: 100%;
+}
+
+#menu .items  {
+
+    margin-top: 25px;
+ 
+  
+   
+}
+
+
+
+#menu .items li{       
+    list-style: none;
+    padding: 15px 0;
+    transition:0.3 ease ;
+   
+    
+}
+.btn .secondary {
+    background-color: red;
+}
+.colors-ul {
+    list-style: none;
+    padding:24px;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+.seleccion-color {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.colors-ul li {
+    cursor: pointer;
+    transition: transform 0.3 ease;
+    width:24px;
+    height:24px;
+    border-radius: 50%;
+}
+.container-cfg-block {
+    padding: 2em;
+}
+
+.colors-ul li:hover {
+    transform: scale(1.1);
+}
+
+#red {
+    background-color: rgb(121, 10, 10);
+}
+#green {
+    background-color: green;
+}
+#amber {
+    background-color: #ffca28;
+}
+#blue {
+    background-color: #42a5f5;
+}
+#gray {
+    background-color: gray;
+}
+/* Red selected*/
+#menu.red {
+    background: rgb(199,11,11);
+    background: linear-gradient(180deg, rgba(199,11,11,1) 43%, rgba(9,9,9,1) 100%);
+}
+body.red {
+    background: rgb(199,11,11);
+    background: linear-gradient(180deg, rgba(199,11,11,1) 19%, rgba(0,0,0,1) 100%);
+}
+#menu.red .logo {
+    background: rgb(83,12,12);
+    background: linear-gradient(180deg, rgba(83,12,12,1) 43%, rgba(124,23,23,1) 100%);
+    color: #ffffff;
+}
+#interface .navigation.red {
+    background: rgb(60,60,60);
+    background: linear-gradient(180deg, rgba(60,60,60,1) 43%, rgba(0,0,0,1) 100%);
+}
+#interface .navigation .search.red input{
+    background-color: rgb(224, 224, 224);
+    color: rgb(0, 0, 0);
+}
+#interface .navigation .search.red {
+    background-color: rgb(224, 224, 224);
+    
+}
+
+/* green selected */
+#menu.green {
+    background-color: green;
+}
+#menu.green .logo {
+    color: white;
+    background-color: #3a3880;
+}
+#menu.amber {
+    background-color: #ffca28;
+}
+#menu.blue {
+    background-color: #42a5f5;
+}
+#menu.gray {
+    background-color: gray;
+}
+
+#menu .items li i{
+
+    color:white;
+    width: 30px;
+    height: 15px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 10px 0 25px;
+
+}
+
+#menu .items li a{
+    transition: 0.3s ease;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+   
+    }
+    
+    .container-config {
+        margin-top: 10em;
+    }
+
+
+#menu .items li:hover {
+    background-color: #3a3880 ;
+    cursor: pointer;
+    border-left: 4px solid var(--border-left-event-hover);
+   
+
+}
+/* previously a border-left hover color
+#menu .items li:nth-child(1){
+border-left: 4px solid var(--border-left-event-hover);
+}
+
+*/
+
+
+
+#menu .items li:hover i,
+#menu .items li:hover a{
+    color: var(--text-icon-color-hover);
+    /*font-weight: 1000;  fun*/
+}
+
+/* settings and support section*/
+
+/* Temporary solution*/
+
+#menu .items .settings{
+    margin-top: 34px;
+   
+    border-bottom: 1px solid grey;
+}
+
+#menu .items .support{
+    margin-top: 4px;
+    margin-bottom: 1px;
+   
+
+}
+
+
+/*footer*/
+.tex-footer {
+    font-size: 14px;
+    color: #aa8598;
+    padding-left: 30px;
+   
+    
+}
+
+    
+/*Pending*/
+
+/*interface section profile, bell and more*/
+
+
+#interface{
+    width: calc(100% - 250px);
+    /* complement to fix te sidebar*/
+  margin-left: 250px;
+  position: relative;
+}
+
+#interface .navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:rgb(255, 255, 255);
+    padding: 15px 30px;
+    border-bottom: 3px solid black;
+    /*fix nav bar top*/
+    position: relative;
+}
+
+#interface .navigation .search{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid grey;
+    border-radius: 4px;
+
+}
+
+#interface .navigation .search i{
+    margin-right: 14px;
+}
+
+#interface .navigation .search input{
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+#interface .navigation .profile{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+#interface .navigation .profile i{
+    margin-right: 20px;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+#interface .navigation .profile img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+.n1{
+    color: #2a2727;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+#menu-btn{
+    display: none; /*for hiden menu-btn in computer screens*/
+    color: #2a2727;
+font-size: 16px;
+cursor: pointer;
+margin-right: 20px;
+}
+
+
+
+
+/* Estilo del encabezado que informa en cual pagina se está. En
+este caso, Dashboard*/
+.i-name{
+    color: rgb(29, 16, 72);
+    padding: 30px 30px 0 30px;
+    font-size: 24px;             
+    font-weight: 800;
+    margin-top: 70px;
+}
+
+/*fIN barra de nagecion lateral y superior reutilizable*/
+
+
+/* Section of val-boxes in dashboard */
+.values {
+    padding: 30px 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.values .val-box {
+    background: white;
+    width: 235px;
+    padding: 16px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    margin-bottom: 20px;  /*espaciado inferior entre las val-box*/
+    
+
+}
+
+.values .val-box i{
+    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    background-color: purple;
+    margin-right:15px;
+
+}
+
+/* for individual back-ground color for the icons in the val-boxes*/
+.values .val-box:nth-child(1) i{
+    background-color:  purple;
+}
+
+.values .val-box:nth-child(2) i{
+    background-color: #D14BCA;
+}
+
+.values .val-box:nth-child(3) i{
+    background-color: palevioletred;
+}
+
+.values .val-box:nth-child(4) i{
+    background-color: rgb(134, 218, 221);
+}
+
+.values .val-box h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.values .val-box span{
+    font-size: 15px;
+    color: grey;
+}
+
+
+/*pruebita*/
+
+
+/*Board*/
+
+.board{
+    width: 94%;
+    margin: 30px 0 30px 30px;
+    overflow: auto;
+    background: white;
+    border-radius: 8px;
+
+}
+
+.board img{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+
+}
+
+.board h5{
+    font-weight: 600;
+    font-size: 14px;
+    color: #371631;
+    font-weight: 500;
+}
+
+.board p{
+    font-weight: 400;
+    font-size: 12px;
+    color:  #949494;
+
+}
+
+.board .people{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom: 1px solid grey;
+
+}
+
+
+thead td{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    background: rgb(178, 170, 186);
+    text-align: start;
+    padding: 15px;
+
+}
+
+tbody tr td{
+    padding: 10px 15px;
+}
+
+.people-status p{
+background:#DAF7A6;
+padding: 2px 10px;
+display: inline-block;
+border-radius: 40px;
+color: rgb(1, 1, 1);
+
+
+}
+
+.edit a{
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+/*responsive*/ /*Esto es reutilizable*/
+
+@media (max-width:769px){
+    #menu {
+        z-index: 999;
+        width: 230px;
+        position: fixed;
+        left: -230px;
+       
+       
+    }
+   
+    /*for functional menu-btn*/
+    #menu.active{
+        left: 0;
+    }
+
+    #menu-btn{
+        display: initial;
+        /*for visible menu-btn in mobile screens*/
+
+    }
+   
+    #interface {
+        width: 100%;
+        margin-left: 0px;
+        display: inline-block;
+        transition: 0.3s ease;
+        
+    }
+
+    /*mobile*/
+    #menu.active~#interface{
+        width: calc(100% -230px);
+        margin-left: 230px;
+        transition: 0.3s ease;
+
+    }
+   
+    #interface .navigation {
+     width: 100%;
+ 
+    }
+
+    .values {
+      padding: 30px 30px 0 30px;
+      justify-content: flex-start;
+    }
+
+    .values .val-box {
+      
+        padding: 16px 20px;
+        margin: 10px 20px 10px 0;
+        
+    }
+
+    .board {
+        width: 92%;
+        padding: 0;
+        overflow-x: auto;
+
+       
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+}
+
+
+@media (max-width:477px) {
+
+    #interface .navigation  {
+        padding: 15px;
+    }
+
+    #interface .navigation .search input{
+        width: 150px;
+    }
+
+    .i-name{
+        padding: 30px 15px 0 15px;
+    }
+
+    .values{
+        pad: 15px 15px 0 15px;
+    }
+
+
+    /*adapting the val-boxes to a mobile*/
+     .values .val-box{
+        width: 100%;
+        margin: 8px 0;
+
+    }
+
+    .board{
+        margin: 30px 15px 0 15px;
+    }
+    
+    
+}.btn {
+  border: none; 
+  color: black; 
+  padding: 7px 26px; 
+  cursor: pointer; 
+  border-radius: 4px; 
+}
+.primary {background-color: white; border: 2px solid #007bff;} 
+.primary:hover {background: #0b7dda; color: white;}
+.secondary {background-color: white; border: 2px solid #e7e7e7;} 
+.secondary:hover {background: #ddd; color: white;}
+.success {background-color: white; border: 2px solid #04AA6D;} 
+.success:hover {background-color: #46a049; color: white;}
+
+ 
+/*casillas*/
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.pagination li {display: inline;}
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 9px 18px;
+    text-decoration: none;
+}
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+ul.pagination li a.active:hover {background-color: #397f3b;}
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+
+    
